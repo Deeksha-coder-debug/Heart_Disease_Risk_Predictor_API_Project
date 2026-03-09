@@ -210,26 +210,25 @@ if st.button("🔍 Predict Risk", use_container_width=True):
         st.error(f"Connection error: {e}")
 
 
-    st.markdown(
-    """
-    <style>
-    .footer {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background-color: #0f172a;
-        color: white;
-        text-align: center;
-        padding: 10px;
-        font-size: 16px;
-        font-family: Arial;
-    }
-    </style>
-
-    <div class="footer">
-        With ❤️ Sai Deeksha Talabaktula | ML & Deep Learning Enthusiast
-    </div>
-    """,
-    unsafe_allow_html=True
+st.markdown(
+"""
+<style>
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #0f172a;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+    font-family: Arial;
+}
+</style>
+<div class="footer">
+    With ❤️ Sai Deeksha Talabaktula | ML & Deep Learning Enthusiast
+</div>
+""",
+unsafe_allow_html=True
 )

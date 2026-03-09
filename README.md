@@ -1,6 +1,6 @@
 # Heart Disease Risk Prediction API
 
-A REST API built with **FastAPI** that predicts a user's heart disease risk level based on key health indicators, using a Logistic Regression model trained on the **Framingham Heart Study** dataset.
+A REST API built with **FastAPI** that predicts a user's heart disease risk level based on key health indicators, using a Logistic Regression model trained on the **Framingham Heart Study** dataset.Also includes streamlit frontend functionality where user can enter parameters and predict level of risk & percentage of risk.
 
 ---
 
@@ -36,19 +36,6 @@ heart-disease-api/
 
 ---
 
-## Input Features
-
-| Field | Type | Description |
-|---|---|---|
-| `age` | int | Age of the patient |
-| `male` | int | Sex (1 = Male, 0 = Female) |
-| `cigsPerDay` | float | Cigarettes smoked per day |
-| `totChol` | float | Total cholesterol level |
-| `sysBP` | float | Systolic blood pressure |
-| `glucose` | float | Blood glucose level |
-
----
-
 ## API Endpoints
 
 | Method | Endpoint | Description |
@@ -56,34 +43,6 @@ heart-disease-api/
 | GET | `/` | Welcome message |
 | GET | `/health` | API health check + model version |
 | POST | `/predict` | Predict heart disease risk |
-
----
-
-## Sample Request
-
-POST /predict
-```json
-{
-  "age": 45,
-  "male": 1,
-  "cigsPerDay": 10,
-  "totChol": 230,
-  "sysBP": 140,
-  "glucose": 85
-}
-```
-
-## Sample Response
-```json
-{
-  "risk_label": "Medium Risk",
-  "confidence": 0.5821,
-  "class_probabilities": {
-    "Low Risk": 0.4179,
-    "High Risk": 0.5821
-  }
-}
-```
 
 ---
 
@@ -112,6 +71,75 @@ Visit http://127.0.0.1:8000/docs for the interactive Swagger UI.
 
 ---
 
+# 2nd Version details
+
+# ❤️ Heart Disease Risk Prediction API with interactive Streamlit app functionality & Docker Containerization
+
+A production-ready REST API built with **FastAPI** that predicts a user's heart disease
+risk level based on key health indicators, using a Logistic Regression model trained on
+the **Framingham Heart Study** dataset. Includes an interactive **Streamlit frontend** and full
+**Docker containerization**.
+
+---
+
+## Features
+- Predicts heart disease risk as **Low**, **Medium**, or **High**
+- Returns confidence score and class probabilities
+- Structured response via **Pydantic response models**
+- Input validation via Pydantic
+- Health check and model versioning endpoints
+- Interactive **Streamlit UI** for non-technical users
+- Fully **Dockerized** for easy deployment
+
+---
+
+## Tech Stack
+- **Python**
+- **FastAPI**
+- **Streamlit**
+- **Scikit-learn** (Logistic Regression)
+- **Pandas**
+- **Pydantic**
+- **Docker**
+
+---
+
+## Project Structure
+```
+Serving ML Model FastAPI/
+├── model/
+│   ├── logistic_regression_model.pkl  # Trained ML model
+│   ├── scaler.pkl                     # StandardScaler for preprocessing
+│   └── predict.py                     # Prediction logic
+├── schema/
+│   ├── user_input.py                  # Pydantic input schema
+│   └── prediction_response.py         # Pydantic response model
+├── app.py                             # FastAPI app and routes
+├── frontend.py                        # Streamlit UI
+├── Dockerfile                         # Docker configuration
+├── requirements.txt                   # Python dependencies
+├── start.sh                           # Startup script
+└── README.md
+```
+
+## Streamlit Frontend
+
+The interactive UI allows non-technical users to:
+- Enter personal and clinical health details across organized sections
+- Submit inputs and receive a real-time risk prediction
+- View risk level with color-coded indicators (🟢 Low / 🟡 Medium / 🔴 High)
+- See confidence score displayed as a progress bar and metric
+
+---
+
+## Model Info
+- **Algorithm:** Logistic Regression
+- **Dataset:** Framingham Heart Study
+- **Version:** 2.0.0
+- **Preprocessing:** StandardScaler
+
+---
+
 ## Author
-Your Name — [github.com/your-username](https://github.com/your-username)
+Sai Deeksha Talabaktula — [github.com/Deeksha-coder-debug](https://github.com/Deeksha-coder-debug)
 
